@@ -18,7 +18,7 @@ class ImportRegions extends Command
     {
         // Import provinces
         $response = Http::withHeaders([
-            'key' => '61188f687d4fd93cb7100b56ff22424b'
+            'key' => 'your-api-here'
         ])->get('https://pro.rajaongkir.com/api/province');
 
         $provinces = $response->json()['rajaongkir']['results'];
@@ -32,7 +32,7 @@ class ImportRegions extends Command
 
         // Import cities
         $response = Http::withHeaders([
-            'key' => '61188f687d4fd93cb7100b56ff22424b'
+            'key' => 'your-api-here'
         ])->get('https://pro.rajaongkir.com/api/city');
 
         $cities = $response->json()['rajaongkir']['results'];
@@ -53,7 +53,7 @@ class ImportRegions extends Command
         $cities = City::all();
         foreach ($cities as $city) {
             $response = Http::withHeaders([
-                'key' => '61188f687d4fd93cb7100b56ff22424b'
+                'key' => 'your-api-here'
             ])->get("https://pro.rajaongkir.com/api/subdistrict?city={$city->id}");
 
             $subdistricts = $response->json()['rajaongkir']['results'];
